@@ -1,0 +1,48 @@
+R Data Exploration Tool (RDET)
+========================================================
+transition: fade
+author: Daniel Thomas
+date: `r date()`
+
+About
+========================================================
+
+RDET was written for the Data Products Coursera class.
+
+### Motivation
+```{r}
+numData<-dim(data()$results)[1]
+```
+The premise of RDET is to:
+- Simplify the initial exploration of standard R Datasets (`r numData` in the authors environment)
+- Graphically display data in a way which is easy to consume
+- Have some fun and learn on the way
+
+
+Usage
+========================================================
+RDET usage is very simple, the basic steps are:
+
+1. Select the Dataset you wish to explore
+2. Specify the graph parameters 
+3. Examine the output
+
+Rather than reviewing just the graphs you can also explore the raw data by switching to the 'table' tab, which allows the dataset to be sorted & searched.
+
+Known Issues/To Do
+========================================================
+type: alert
+There are a few known issues with the current version:
+- Datasets with '(' or ')' do not load
+- Datasets with less then 3 columns generate errors
+- Datasets with more than `r 10*1000` rows are truncated for performance reasons
+
+
+Where Next
+========================================================
+type: prompt
+
+Play with RDET on ShinyApps.io (http://daniel.shinyapps.io/RDET/)
+
+Provide Feedback/Clone/Tinker on GITHUB (https://github.com/Daniel-t/R-Data-Exploration-Tool)
+
