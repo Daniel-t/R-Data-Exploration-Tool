@@ -16,8 +16,18 @@ shinyServer(
             dsName<-input$dataSet
         }
         data(list=c(dsName))
-        d<-get(dsName)
-        #TODO must note this in doco
+        d<-as.data.frame(get(dsName))
+        if(dim(d)[2]==1){
+            d<-cbind(seq_along(d[,1]),d,d)
+            colnames(d)<-c('seq','data','copy')
+        }
+        if(dim(d)[2]==2){
+            orig_names<-colnames(d)
+            d<-cbind(seq_along(d[,1]),d)
+            colnames(d)<-c('seq',orig_names)
+        }
+        
+        
         if (dim(d)[1]>10000) {
             d<-d[1:10000,]
             output$warningO<-renderText("Data Too Large, Truncated to 10,000 rows")

@@ -7,7 +7,7 @@ Welcome to RDET, this tool was built to simplify exploration of the R data libra
 The left panel contains the settings for selecting and grphing your chosen dataset.
 
 #### Specify Dataset
-Allows you to select which data set you wish to explore.  NOTE: Some datasets (those with less than 3 columns) do not work and will cause an error.  Datasets which have parenthesis in there names '()' also cause errors
+Allows you to select which data set you wish to explore.  NOTE: Datasets with 1 or 2 columns will have a sequence column added, datasets with only one column will have the data duplicated into a second column.  Datasets which have parenthesis in there names '()' also cause errors
     
 
 #### Graph Settings
@@ -38,7 +38,7 @@ This page, general usage and notes
 ### Notes/Known Errors/Etc
 
 * ERROR: Data sets whcih contain parenthesis in their names do not load
-* ERROR: Data sets with less then three columns do not load
+* LIMITATION: Data sets with less then three columns, will have a sequence column added and (for one column data) have the data duplicated into another column.
 * LIMITATION: Data sets with more than 10,000 rows are truncated for performance reasons
 
 ### Feedback

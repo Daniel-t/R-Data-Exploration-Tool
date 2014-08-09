@@ -34,7 +34,7 @@ Known Issues/To Do
 type: alert
 There are a few known issues with the current version:
 - Datasets with '(' or ')' do not load
-- Datasets with less then 3 columns generate errors
+- FIXED: Datasets with less then 3 columns generate errors
 - Datasets with more than `r 10*1000` rows are truncated for performance reasons
 
 
