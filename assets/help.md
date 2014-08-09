@@ -49,3 +49,4 @@ Thanks to Jeff Leek, Roger Peng & Brian Caffo for putting together and running t
 
 ### Author
 RDET was written by Daniel Thomas for the Data Products course on Coursera
+

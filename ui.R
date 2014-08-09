@@ -1,4 +1,5 @@
 library(shiny)
+library(markdown)
 shinyUI(pageWithSidebar(
     headerPanel("R Data Exploration Tool"),
     sidebarPanel(
