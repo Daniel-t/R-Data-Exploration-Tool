@@ -14,7 +14,11 @@ shinyUI(pageWithSidebar(
     
     ),
     mainPanel(
-        imageOutput('Oplot'),
+        tabsetPanel(
+            tabPanel("Plot", imageOutput('Oplot')), 
+            tabPanel("Table", dataTableOutput("Otable")),
+            tabPanel("Documentation/HELP",includeMarkdown("assets/help.md"))
+        ),
         textOutput(outputId = 'warningO')
     )
 ))

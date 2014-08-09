@@ -43,7 +43,7 @@ shinyServer(
         
         output$dataSetList <- renderUI({
             ds<-data()
-            selectInput("dataSet", "Choose DataSet", ds$results[,3],selected = "mtcars")
+            selectInput("dataSet", "", ds$results[,3],selected = "mtcars")
         })
     
        
@@ -77,9 +77,7 @@ shinyServer(
             plot
           
        })
+           
+    output$Otable <- renderDataTable({expData })
        
-       
-       
-    }
-    
-)
+    })
