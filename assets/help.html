@@ -6,7 +6,6 @@
 
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
 <meta name="generator" content="pandoc" />
 
 
@@ -61,7 +60,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <p>The left panel contains the settings for selecting and grphing your chosen dataset.</p>
 <div id="specify-dataset" class="section level4">
 <h4>Specify Dataset</h4>
-<p>Allows you to select which data set you wish to explore. NOTE: Some datasets (those with less than 3 columns) do not work and will cause an error. Datasets which have parenthesis in there names ‘()’ also cause errors</p>
+<p>Allows you to select which data set you wish to explore. NOTE: Datasets with 1 or 2 columns will have a sequence column added, datasets with only one column will have the data duplicated into a second column. Datasets which have parenthesis in there names ‘()’ also cause errors</p>
 </div>
 <div id="graph-settings" class="section level4">
 <h4>Graph Settings</h4>
@@ -81,7 +80,7 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <h3>Notes/Known Errors/Etc</h3>
 <ul>
 <li>ERROR: Data sets whcih contain parenthesis in their names do not load</li>
-<li>ERROR: Data sets with less then three columns do not load</li>
+<li>LIMITATION: Data sets with less then three columns, will have a sequence column added and (for one column data) have the data duplicated into another column.</li>
 <li>LIMITATION: Data sets with more than 10,000 rows are truncated for performance reasons</li>
 </ul>
 </div>
@@ -89,10 +88,21 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 <h3>Feedback</h3>
 <p>Any feedback is welcome by submitting Issues/Pull Requests/etc on the Git repository <a href="https://github.com/Daniel-t/R-Data-Exploration-Tool">https://github.com/Daniel-t/R-Data-Exploration-Tool</a></p>
 </div>
-</div>
-<div id="thanks" class="section level2">
-<h2>Thanks</h2>
+<div id="thanks" class="section level3">
+<h3>Thanks</h3>
 <p>Thanks to Jeff Leek, Roger Peng &amp; Brian Caffo for putting together and running the Data Specialisation on Coursera.</p>
+</div>
+<div id="author" class="section level3">
+<h3>Author</h3>
+<p>RDET was written by Daniel Thomas for the Data Products course on Coursera</p>
+</div>
+<div id="change-history" class="section level3">
+<h3>Change History</h3>
+<ul>
+<li>Version 0.2: Fixed loading of dataseries which contain ( and )</li>
+<li>Exludes some datasets which ‘misbehave’ (e.g. have different data names from the dataset name)</li>
+</ul>
+</div>
 </div>
 
 
@@ -107,12 +117,12 @@ $(document).ready(function () {
 
 </script>
 
-<!-- dynamically load mathjax for compatibility with --self-contained -->
+<!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

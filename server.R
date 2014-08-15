@@ -4,7 +4,7 @@ data(mtcars)
 
 ###change this as needed
 #expData<-mtcars
-#expDataName<-"MTCARS"
+#expDataName<-"MTCARS" 
 ###
 
 shinyServer(
@@ -52,8 +52,20 @@ shinyServer(
        })
         
         output$dataSetList <- renderUI({
-            ds<-data()
-            selectInput("dataSet", "", ds$results[,3],selected = "mtcars")
+            ds<-data()$results[,3]
+            pullOut<-grepl("(",ds,fixed = T)
+            ds1<-ds[!pullOut]
+            ds2<-ds[pullOut]
+            ds2<-gsub("(","#!#",ds2,fixed = T)
+            ds2<-gsub(")","#!#",ds2,fixed = T)
+            matches<-regexec(" #!#.*#!#",ds2)
+            ds2<-sapply(unique(regmatches(ds2,matches)),function(x){x})
+            ds2<-gsub("#!#","",ds2,fixed = T)
+            ds2<-gsub(" ","",ds2,fixed = T)
+            ds<-sort(c(ds1,ds2))
+            #exlcude data sets that misbehave
+            ds<-ds[!(ds %in% c('beavers','UKLungDeaths','state'))]
+            selectInput("dataSet", "", ds,selected = "mtcars")
         })
     
        

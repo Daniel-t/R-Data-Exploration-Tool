@@ -50,3 +50,7 @@ Thanks to Jeff Leek, Roger Peng & Brian Caffo for putting together and running t
 ### Author
 RDET was written by Daniel Thomas for the Data Products course on Coursera
 
+### Change History
+* Version 0.2: Fixed loading of dataseries which contain ( and )
+ * Exludes some datasets which 'misbehave' (e.g. have different data names from the dataset name)
+
